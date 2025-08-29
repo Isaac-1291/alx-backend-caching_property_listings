@@ -80,7 +80,7 @@ DATABASES = {
         "NAME": "property_db",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        "HOST": "postgres",
+        "HOST": "db",
         "PORT": 5432,
     }
 }
