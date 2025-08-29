@@ -1,10 +1,11 @@
 # properties/views.py
 from django.views.decorators.cache import cache_page
 from django.http import JsonResponse
-from .models import Property
+from .utils import get_all_properties  # import the new utility function
 
 @cache_page(60 * 15)
 def property_list(request):
-    properties = Property.objects.all().values()  # get all properties as dicts
-    data = list(properties)  # convert QuerySet to list for JsonResponse
+    properties = get_all_properties()  # get cached or DB queryset
+    data = list(properties.values())    # convert QuerySet to list of dicts
     return JsonResponse({"data": data})
+   
