@@ -29,6 +29,8 @@ services:
     depends_on:
       - db
       - redis
+    environment:
+      DJANGO_SETTINGS_MODULE: alx_backend_caching_property_listings.settings
 
 volumes:
   postgres_data:
